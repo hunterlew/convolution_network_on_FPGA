@@ -10,4 +10,4 @@ Acceleration
 ------------
 For trade-off between FPGA resource and speed, the first conv. layer uses shift-register structures for acceleration, considering that the size of inputs and weights in the first conv. layer are larger. The other conv. layers only uses pipe-line structures. Note that there are 18 files named with m_conv_1, indicating 18 shift-registers in the first conv. layer.
 
-For the limit of bandwidth, the second conv. layer uses channel-grouping parallelization scheme. I used v7-415t and v7-485t FPGA for comparisons, which use different group numbers (4 vs 1) according to their different amounts of resource. You may notice the scheme in the file CNN_top.v, with the signal 'ram_ready' which controls the time of channel grouping and merging. 
+For the limit of bandwidth, the second conv. layer uses channel-grouping parallelization scheme. I used v7-415t and v7-485t FPGA for comparisons, which use different group numbers (4 vs 1) according to their different amounts of resource. You may notice the scheme in the file CNN_top.v, with the signal 'ram_ready' which controls the channel grouping and merging. 
